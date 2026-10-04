@@ -1,0 +1,26 @@
+# ==============================================================================
+# SkillX Git Ignore Rules
+# ==============================================================================
+
+# Compiled Java bytecode
+backend/bin/
+*.class
+
+# Portable JDK binaries (large binaries should not be pushed to GitHub)
+backend/jdk/
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# Temporary logs & crash dumps
+*.log
+hs_err_pid*.log
