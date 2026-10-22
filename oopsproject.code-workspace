@@ -1,0 +1,26 @@
+{
+  "folders": [
+    {
+      "name": "SkillX - OOP Mini Project",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "java.project.sourcePaths": [
+      "backend/src"
+    ],
+    "java.project.outputPath": "backend/bin",
+    "java.project.referencedLibraries": [
+      "backend/lib/sqlite-jdbc-3.45.1.0.jar",
+      "backend/lib/slf4j-api-2.0.12.jar",
+      "backend/lib/slf4j-simple-2.0.12.jar"
+    ],
+    "java.configuration.runtimes": [
+      {
+        "name": "JavaSE-17",
+        "path": "${workspaceFolder}/backend/jdk/jdk-17.0.20.1+1",
+        "default": true
+      }
+    ]
+  }
+}
