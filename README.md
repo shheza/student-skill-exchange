@@ -15,10 +15,12 @@ student-skill-exchange/
 ├── run.bat                    # One-click script to compile Java backend & launch website
 ├── README.md                  # Complete Viva Voce guide and documentation
 │
-└── backend/                   # Pure Java OOP Backend (Standard Library, Zero External Dependencies)
+└── backend/                   # Pure Java OOP Backend with SQLite Database
     ├── run.bat                # Direct backend compile & run script
     ├── README.md              # Java OOP viva guide & REST endpoint specifications
+    ├── skillexchange.db       # Relational SQLite Database file (persistent storage)
     ├── bin/                   # Compiled .class bytecode
+    ├── lib/                   # Bundled SQLite JDBC & logging libraries
     ├── jdk/                   # Portable OpenJDK 17 (self-contained, no system installation required)
     └── src/
         ├── Main.java          # Backend entry point
@@ -28,8 +30,10 @@ student-skill-exchange/
         │   ├── Skill.java         # Skill domain model
         │   ├── SkillRequest.java  # Request model with accept()/reject() state machine
         │   └── SkillExchange.java # Active exchange model with complete()/cancel()
+        ├── database/
+        │   └── DatabaseManager.java # SQLite JDBC Data Access Layer (Connection, CRUD, Schema)
         ├── service/
-        │   └── SkillExchangeSystem.java # Core business logic managing ArrayList collections
+        │   └── SkillExchangeSystem.java # Core business logic managing database synchronization
         └── server/
             ├── JsonUtils.java     # Zero-dependency JSON serializer and regex parser
             └── SkillServer.java   # Multi-threaded HTTP REST API & static web server (port 8080)

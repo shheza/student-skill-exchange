@@ -4,7 +4,17 @@
 
 # Compiled Java bytecode
 backend/bin/
+backend/target/
+target/
 *.class
+
+# SQLite runtime database files
+*.db
+*.db-wal
+*.db-shm
+
+# Backups
+backup/
 
 # Portable JDK binaries (large binaries should not be pushed to GitHub)
 backend/jdk/

@@ -37,8 +37,8 @@ echo.
 rem 3. Ensure bin directory exists
 if not exist "%~dp0bin" mkdir "%~dp0bin"
 
-echo [1/2] Compiling Java OOP classes...
-"%JAVAC_CMD%" -encoding UTF-8 -d "%~dp0bin" "%~dp0src\models\*.java" "%~dp0src\service\*.java" "%~dp0src\server\*.java" "%~dp0src\Main.java"
+echo [1/2] Compiling Java OOP classes with SQLite Database...
+"%JAVAC_CMD%" -encoding UTF-8 -cp "%~dp0lib\*" -d "%~dp0bin" "%~dp0src\models\*.java" "%~dp0src\database\*.java" "%~dp0src\service\*.java" "%~dp0src\server\*.java" "%~dp0src\Main.java"
 if %ERRORLEVEL% neq 0 (
     echo [ERROR] Compilation failed!
     pause
@@ -49,5 +49,5 @@ echo [OK] Compilation successful!
 echo.
 echo [2/2] Starting SkillX REST API Server on port 8080...
 echo.
-"%JAVA_CMD%" -cp "%~dp0bin" Main 8080
+"%JAVA_CMD%" -cp "%~dp0lib\*;%~dp0bin" Main 8080
 pause

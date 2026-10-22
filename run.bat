@@ -36,8 +36,8 @@ echo.
 rem Ensure bin directory
 if not exist "%~dp0backend\bin" mkdir "%~dp0backend\bin"
 
-echo [1/3] Compiling Java OOP Backend...
-"%JAVAC_CMD%" -encoding UTF-8 -d "%~dp0backend\bin" "%~dp0backend\src\models\*.java" "%~dp0backend\src\service\*.java" "%~dp0backend\src\server\*.java" "%~dp0backend\src\Main.java"
+echo [1/3] Compiling Java OOP Backend with SQLite Database...
+"%JAVAC_CMD%" -encoding UTF-8 -cp "%~dp0backend\lib\*" -d "%~dp0backend\bin" "%~dp0backend\src\models\*.java" "%~dp0backend\src\database\*.java" "%~dp0backend\src\service\*.java" "%~dp0backend\src\server\*.java" "%~dp0backend\src\Main.java"
 if %ERRORLEVEL% neq 0 (
     echo [ERROR] Backend compilation failed!
     pause
@@ -52,5 +52,5 @@ start "" cmd /c "timeout /t 2 /nobreak >nul & start http://localhost:8080"
 echo [3/3] Starting SkillX REST Server on http://localhost:8080 ...
 echo Press Ctrl+C anytime to stop the server.
 echo.
-"%JAVA_CMD%" -cp "%~dp0backend\bin" Main 8080
+"%JAVA_CMD%" -cp "%~dp0backend\lib\*;%~dp0backend\bin" Main 8080
 pause
